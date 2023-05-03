@@ -25,26 +25,25 @@ void commitCmdString() {
 void parseCmdString() {
   // exemplo do comando:
   // A:15 leitura analógica da porta 15
-  // ON:2 ligar pino 2
-  // OFF:2 desligar pino 3
+  // HIGH:2 ligar pino 2
+  // LOW:2 desligar pino 3
   uint8_t cmdIndex = inputString.indexOf(":");
   String cmd = inputString.substring(0, cmdIndex);
   uint8_t pin = inputString.substring(cmdIndex+1, inputString.length()).toInt();
 
   if(cmd.equals("A")) {
-    Serial.println("Recebemos um A");
     // A0 = GPIO 54 e A15 = GPIO 69
     if(pin >= 54 && pin <= 69) {
       Serial.println(analogRead(pin));
     }
   } 
-  else if(cmd.equals("OFF")) {
-    Serial.println("Recebemos um OFF");
+  else if(cmd.equals("LOW")) {
     digitalWrite(pin, LOW);
+    Serial.println("ok");
   } 
-  else if (cmd.equals("ON")) {
-    Serial.println("Recebemos um ON");
+  else if (cmd.equals("HIGH")) {
     digitalWrite(pin, HIGH);
+    Serial.println("ok");
   }
 
   //Serial.println(cmd);
