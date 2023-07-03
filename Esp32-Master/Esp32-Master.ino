@@ -14,11 +14,8 @@ const char* mqttServer = "test.mosquitto.org";
 const char* mqttClientId = "ifrn-estufas-esp32";
 
 // Tópicos MQTT
-// Geral = temperatura e umidade do exterior das estufas, incidência de chuva, incidência solar
-// Água = estado da bomba e solenóides
-// Estufa1 = temperatura e umidade do solo e do ar, estado dos exaustores
-const char* mqttTopics[] = { "ifrn-estufas-esp32-geral", "ifrn-estufas-esp32-agua", "ifrn-estufas-esp32-estufa1" };
-const uint8_t topicsCount = 3;
+const char* mqttTopics[] = { "esp32/placa/input" };
+const uint8_t topicsCount = 1;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -83,14 +80,15 @@ void callback(char* topic, byte* message, unsigned int length) {
   }
   Serial.println();
 
-  String topicName = String(topic);
-  if (topicName == mqttTopics[0]) {
-    Serial.print("Changing output to ");
-    if (messageTemp == "on") {
+  //String topicName = String(topic);
+  if (String(topic) == mqttTopics[0]) {
+    //Serial.print("Changing output to ");
+    Serial2.println(messageTemp);
+    /* if (messageTemp == "on") {
       Serial2.println("HIGH:13");
     } else if (messageTemp == "off") {
       Serial2.println("LOW:13");
-    }
+    } */
   }
 }
 
@@ -133,21 +131,5 @@ void loop() {
     Serial.println("5s");
     //client.publish(mqttTopics[1], "teste");
 
-    /**
-    char tempString[8];
-    dtostrf(temperature, 1, 2, tempString);
-    Serial.print("Temperature: ");
-    Serial.println(tempString);
-    client.publish("esp32/temperature", tempString);
-
-    humidity = bme.readHumidity();
-    
-    // Convert the value to a char array
-    char humString[8];
-    dtostrf(humidity, 1, 2, humString);
-    Serial.print("Humidity: ");
-    Serial.println(humString);
-    client.publish("esp32/humidity", humString);
-    */
   }
 }
