@@ -1,4 +1,4 @@
-# IoT Sistema de Irrigação Inteligente para Estufas
+# IoT Sistema de Irrigação para Estufas
 
 <p align="center">
   <img src="https://github.com/phaa/iot-sistema-irrigacao/blob/main/estufa1.jpeg" title="Projeto na VI Secitex" width="500" />
