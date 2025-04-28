@@ -1,48 +1,48 @@
-# IoT Sistema de Irrigação para Estufas
+# Agrosoft - Greenhouse IoT Irrigation System
 
 <p align="center">
-  <img src="https://github.com/phaa/iot-sistema-irrigacao/blob/main/estufa1.jpeg" title="Projeto na VI Secitex" width="500" />
+  <img src="https://github.com/phaa/iot-sistema-irrigacao/blob/main/estufa1.jpeg" title="Project at VI Secitex" width="500" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/phaa/iot-sistema-irrigacao/blob/main/estufa2.jpeg" title="Projeto na VI Secitex" width="500" />
+  <img src="https://github.com/phaa/iot-sistema-irrigacao/blob/main/estufa2.jpeg" title="Project at VI Secitex" width="500" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/phaa/iot-sistema-irrigacao/blob/main/estufa3.jpeg" title="Projeto na VI Secitex" width="500" />
+  <img src="https://github.com/phaa/iot-sistema-irrigacao/blob/main/estufa3.jpeg" title="Project at VI Secitex" width="500" />
 </p>
 
-## Apresentação
+## Presentation
 
-Este projeto nasceu durante a disciplina de Internet das Coisas (IoT) do curso de Tecnologia em Sistemas para Internet no Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte (IFRN), *Campus* Currais Novos. Ele foi calorosamente recebido e reconhecido pela diretoria na VI Semana de Ciência, Tecnologia e Extensão (Secitex) do IFRN em 2023.
+This project originated during the Internet of Things (IoT) course of the Internet Systems Technology program at the Federal Institute of Education, Science and Technology of Rio Grande do Norte (IFRN), *Campus* Currais Novos. It was warmly received and recognized by the board at the VI Science, Technology and Extension Week (Secitex) of IFRN in 2023.
 
-A motivação central deste projeto foi desenvolver um sistema de automação de baixo custo e acessível para estufas, direcionado especialmente a produtores familiares que enfrentam desafios na gestão de áreas de produção maiores. Nosso objetivo é capacitar esses produtores a aumentar significativamente sua produtividade através da otimização inteligente do uso de recursos, mantendo as plantações em condições ideais de temperatura e umidade do solo e do ar de forma constante.
+The central motivation behind this project was to develop a low-cost and accessible automation system for greenhouses, specifically aimed at family farmers who face challenges in managing larger production areas. Our goal is to empower these producers to significantly increase their productivity through the intelligent optimization of resource use, constantly maintaining crops in ideal temperature and soil/air humidity conditions.
 
-## ⚙️ Implementação (Parte de IoT - Arduino)
+## ⚙️ Implementation (IoT Part - Arduino)
 
-Este repositório concentra-se na parte de IoT do projeto, especificamente nos códigos desenvolvidos para as plataformas Arduino. O sistema é composto por:
+This repository focuses on the IoT part of the project, specifically the code developed for the Arduino platforms. The system is composed of:
 
-* **Placa Master ESP32:** Responsável pela lógica principal, comunicação Wi-Fi com a API e processamento dos dados devido ao seu dual-core. A comunicação com a API é realizada através do protocolo MQTT, onde dados dos sensores são enviados e comandos para os atuadores são recebidos.
-* **Placa Slave Arduino Mega:** Utilizada para interfacear com um grande número de sensores e atuadores que operam em 5V, os quais não seriam diretamente compatíveis com os 3.3V do ESP32. A comunicação entre o ESP32 (master) e o Arduino Mega (slave) é estabelecida via Serial UART.
+* **ESP32 Master Board:** Responsible for the main logic, Wi-Fi communication with the API, and data processing due to its dual-core. Communication with the API is done via the MQTT protocol, where sensor data is sent and actuator commands are received.
+* **Arduino Mega Slave Board:** Used to interface with a large number of 5V sensors and actuators, which would not be directly compatible with the ESP32's 3.3V. Communication between the ESP32 (master) and the Arduino Mega (slave) is established via Serial UART.
 
-A API responsável pelo processamento dos dados e pela lógica de controle pode ser encontrada neste repositório: [https://github.com/phaa/api-sistema-irrigacao](https://github.com/phaa/api-sistema-irrigacao)
+The API responsible for data processing and control logic can be found in this repository: [https://github.com/phaa/api-sistema-irrigacao](https://github.com/phaa/api-sistema-irrigacao)
 
-### 📂 Organização das Pastas
+### 📂 Folder Organization
 
-1.  **`Esp32-Teste-Wifi`**: Contém os códigos dos testes iniciais realizados para estabelecer a conexão da placa ESP32 com a rede IoT do *campus*.
-2.  **`Esp32-Master`**: Inclui o código principal rodando na placa ESP32, responsável pela comunicação MQTT e controle geral do sistema.
-3.  **`Arduino-Mega-Slave`**: Apresenta o código para a placa Arduino Mega, gerenciando a leitura de sensores e o acionamento dos atuadores.
+1.  **`Esp32-Teste-Wifi`**: Contains the code for the initial tests carried out to establish the ESP32 board's connection with the campus IoT network.
+2.  **`Esp32-Master`**: Includes the main code running on the ESP32 board, responsible for MQTT communication and overall system control.
+3.  **`Arduino-Mega-Slave`**: Presents the code for the Arduino Mega board, managing sensor readings and actuator activation.
 
-## 🚀 Próximos Passos e Melhorias Futuras
+## 🚀 Next Steps and Future Improvements
 
-Este projeto demonstra um grande potencial, e algumas áreas para desenvolvimento futuro incluem:
+This project demonstrates great potential, and some areas for future development include:
 
-* Implementação de um painel de controle web ou mobile para visualização dos dados e controle manual do sistema.
-* Integração com serviços de previsão do tempo para ajustes proativos na irrigação.
-* Utilização de aprendizado de máquina para otimizar ainda mais o uso da água e os parâmetros ambientais da estufa.
-* Adição de suporte a mais tipos de sensores e atuadores.
-* Criação de um guia de montagem e configuração do hardware para facilitar a replicação do projeto.
+* Implementation of a web or mobile control panel for data visualization and manual system control.
+* Integration with weather forecast services for proactive irrigation adjustments.
+* Use of machine learning to further optimize water usage and greenhouse environmental parameters.
+* Addition of support for more types of sensors and actuators.
+* Creation of a hardware assembly and configuration guide to facilitate project replication.
 
-## 🧑‍💻 Desenvolvedor
+## 🧑‍💻 Developer
 
 [Pedro Henrique Amorim de Azevedo](https://github.com/phaa)
